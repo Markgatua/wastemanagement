@@ -1,7 +1,7 @@
 <script setup>
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
 import { useTheme } from 'vuetify'
-import logo from '@images/logo.svg?raw'
+import logo from '@images/takalogo.png'
 import authV1MaskDark from '@images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@images/pages/auth-v1-mask-light.png'
 import authV1Tree2 from '@images/pages/auth-v1-tree-2.png'
@@ -31,21 +31,21 @@ const isPasswordVisible = ref(false)
       <VCardItem class="justify-center">
         <template #prepend>
           <div class="d-flex">
-            <div v-html="logo" />
+            <img
+              :src="logo" 
+              alt="Takataka ni Mali"
+            >
           </div>
         </template>
-
-        <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
-          Materio
-        </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">
         <h5 class="text-h5 font-weight-semibold mb-1">
-          Welcome to Materio! 👋🏻
+          <!-- Welcome to Materio! 👋🏻 -->
+          Welcome to Takataka ni Mali
         </h5>
         <p class="mb-0">
-          Please sign-in to your account and start the adventure
+          Please provide your credentials to sign in
         </p>
       </VCardText>
 
@@ -96,36 +96,26 @@ const isPasswordVisible = ref(false)
               </VBtn>
             </VCol>
 
-            <!-- create account -->
-            <VCol
-              cols="12"
-              class="text-center text-base"
-            >
-              <span>New on our platform?</span>
-              <RouterLink
-                class="text-primary ms-2"
-                to="/register"
-              >
-                Create an account
-              </RouterLink>
-            </VCol>
-
-            <VCol
+            <!--
+              <VCol
               cols="12"
               class="d-flex align-center"
-            >
+              >
               <VDivider />
               <span class="mx-4">or</span>
               <VDivider />
-            </VCol>
+              </VCol>
+            -->
 
-            <!-- auth providers -->
-            <VCol
+            <!-- 
+              auth providers 
+              <VCol
               cols="12"
               class="text-center"
-            >
+              >
               <AuthProvider />
-            </VCol>
+              </VCol>
+            -->
           </VRow>
         </VForm>
       </VCardText>

@@ -49,15 +49,6 @@ const upgradeBanner = computed(() => {
 
         <VSpacer />
 
-        <IconBtn
-          class="me-2"
-          href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <VIcon icon="mdi-github" />
-        </IconBtn>
-
         <IconBtn class="me-2">
           <VIcon icon="mdi-bell-outline" />
         </IconBtn>
@@ -85,72 +76,87 @@ const upgradeBanner = computed(() => {
       />
 
       <!-- 👉 Pages -->
-      <VerticalNavSectionTitle
+      <!--
+        <VerticalNavSectionTitle
         :item="{
-          heading: 'Pages',
+        heading: 'Pages',
         }"
-      />
-      <VerticalNavLink
+        />
+      
+        <VerticalNavLink
         :item="{
-          title: 'Login',
-          icon: 'mdi-login',
-          to: '/login',
+        title: 'Login',
+        icon: 'mdi-login',
+        to: '/login',
         }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Register',
-          icon: 'mdi-account-plus-outline',
-          to: '/register',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Error',
-          icon: 'mdi-information-outline',
-          to: '/no-existence',
-        }"
-      />
+        />
 
-      <!-- 👉 User Interface -->
-      <VerticalNavSectionTitle
+        <VerticalNavLink
         :item="{
-          heading: 'User Interface',
+        title: 'Register',
+        icon: 'mdi-account-plus-outline',
+        to: '/register',
         }"
-      />
+        />
+      
+        <VerticalNavLink
+        :item="{
+        title: 'Error',
+        icon: 'mdi-information-outline',
+        to: '/no-existence',
+        }"
+        />
+      -->
+      <!--
+        👉 
+        User Interface
+        <VerticalNavSectionTitle
+        :item="{
+        heading: 'User Interface',
+        }"
+        />
+      
+        <VerticalNavLink
+        :item="{
+        title: 'Typography',
+        icon: 'mdi-alpha-t-box-outline',
+        to: '/typography',
+        }"
+        />
+        <VerticalNavLink
+        :item="{
+        title: 'Icons',
+        icon: 'mdi-eye-outline',
+        to: '/icons',
+        }"
+        />
+        <VerticalNavLink
+        :item="{
+        title: 'Cards',
+        icon: 'mdi-credit-card-outline',
+        to: '/cards',
+        }"
+        />
+        <VerticalNavLink
+        :item="{
+        title: 'Tables',
+        icon: 'mdi-table',
+        to: '/tables',
+        }"
+        />
+        <VerticalNavLink
+        :item="{
+        title: 'Form Layouts',
+        icon: 'mdi-form-select',
+        to: '/form-layouts',
+        }"
+        />
+      -->
       <VerticalNavLink
         :item="{
-          title: 'Typography',
-          icon: 'mdi-alpha-t-box-outline',
-          to: '/typography',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Icons',
-          icon: 'mdi-eye-outline',
-          to: '/icons',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Cards',
-          icon: 'mdi-credit-card-outline',
-          to: '/cards',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Tables',
-          icon: 'mdi-table',
-          to: '/tables',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Form Layouts',
-          icon: 'mdi-form-select',
-          to: '/form-layouts',
+          title: 'Log-out',
+          icon: 'mdi-logout',
+          to: '/logout',
         }"
       />
     </template>
