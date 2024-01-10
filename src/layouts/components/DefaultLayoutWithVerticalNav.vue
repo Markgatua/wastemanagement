@@ -1,10 +1,9 @@
 <script setup>
-import { useTheme } from 'vuetify'
 import upgradeBannerDark from '@images/pro/upgrade-banner-dark.png'
 import upgradeBannerLight from '@images/pro/upgrade-banner-light.png'
 import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
+import { useTheme } from 'vuetify'
 
 // Components
 import Footer from '@/layouts/components/Footer.vue'
@@ -71,86 +70,65 @@ const upgradeBanner = computed(() => {
     <template #vertical-nav-content>
       <VerticalNavLink
         :item="{
-          title: 'Dashboard',
+          title: 'Home',
           icon: 'mdi-home-outline',
           to: '/dashboard',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Account Settings',
-          icon: 'mdi-account-cog-outline',
+          title: 'Onboarding',
+          icon: 'mdi-plus-box-multiple-outline',
+          to: '/onboard',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Aggregators',
+          icon: 'mdi-account-check',
+          to: '/aggregators',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Champions',
+          icon: 'mdi-account-check-outline',
           to: '/account-settings',
         }"
       />
-
-      <!-- 👉 Pages -->
-      <VerticalNavSectionTitle
+      <VerticalNavLink
         :item="{
-          heading: 'Pages',
+          title: 'Collection Reports',
+          icon: 'mdi-chart-bar',
+          to: '/account-settings',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Login',
-          icon: 'mdi-login',
-          to: '/login',
+          title: 'Waste Types',
+          icon: 'mdi-trash-can-outline',
+          to: '/account-settings',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Register',
-          icon: 'mdi-account-plus-outline',
-          to: '/register',
+          title: 'Waste Sales',
+          icon: 'mdi-cash',
+          to: '/account-settings',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Error',
-          icon: 'mdi-information-outline',
-          to: '/no-existence',
-        }"
-      />
-
-      <!-- 👉 User Interface -->
-      <VerticalNavSectionTitle
-        :item="{
-          heading: 'User Interface',
+          title: 'Inventory',
+          icon: 'mdi-animation-outline',
+          to: '/account-settings',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Typography',
-          icon: 'mdi-alpha-t-box-outline',
-          to: '/typography',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Icons',
-          icon: 'mdi-eye-outline',
-          to: '/icons',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Cards',
-          icon: 'mdi-credit-card-outline',
-          to: '/cards',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Tables',
-          icon: 'mdi-table',
-          to: '/tables',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Form Layouts',
-          icon: 'mdi-form-select',
-          to: '/form-layouts',
+          title: 'System users',
+          icon: 'mdi-account-group',
+          to: '/account-settings',
         }"
       />
     </template>
