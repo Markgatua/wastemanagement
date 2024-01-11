@@ -74,6 +74,10 @@ const router = createRouter({
           path: '/:pathMatch(.*)*',
           component: () => import('../pages/[...all].vue'),
         },
+        {
+          path: 'logout',
+          component: () => import('../pages/login.vue'),
+        },
       ],
     },
   ],

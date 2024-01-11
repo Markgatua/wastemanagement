@@ -34,6 +34,7 @@ const props = defineProps({
   .nav-link a {
     display: flex;
     align-items: center;
+    background: #fff;
     cursor: pointer;
   }
 }

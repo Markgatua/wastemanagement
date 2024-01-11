@@ -10,6 +10,12 @@ import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 
+const showTitle = ref(true)
+
+const collapseMenuBar = () => {
+  showTitle.value = !showTitle.value
+}
+
 const vuetifyTheme = useTheme()
 
 const upgradeBanner = computed(() => {
@@ -48,15 +54,6 @@ const upgradeBanner = computed(() => {
 
         <VSpacer />
 
-        <IconBtn
-          class="me-2"
-          href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <VIcon icon="mdi-github" />
-        </IconBtn>
-
         <IconBtn class="me-2">
           <VIcon icon="mdi-bell-outline" />
         </IconBtn>
@@ -68,6 +65,11 @@ const upgradeBanner = computed(() => {
     </template>
 
     <template #vertical-nav-content>
+      <div class="menu-bar">
+        <IconBtn @click="collapseMenuBar">
+          <VIcon icon="mdi-menu" />
+        </IconBtn>
+      </div>
       <VerticalNavLink
         :item="{
           title: 'Home',
@@ -77,58 +79,152 @@ const upgradeBanner = computed(() => {
       />
       <VerticalNavLink
         :item="{
-          title: 'Onboarding',
+          title: showTitle ? 'Onboarding' : '',
           icon: 'mdi-plus-box-multiple-outline',
           to: '/onboard',
         }"
       />
+      
       <VerticalNavLink
+        :item="{
+          title: showTitle ? 'Account Settings' : '',
+          icon: 'mdi-account-cog-outline',
+          to: '/account-settings',
+        }"
+      />
+
+      <!-- 👉 Pages -->
+      <!--
+        <VerticalNavSectionTitle
+        :item="{
+        heading: 'Pages',
+        }"
+        />
+      
+        <VerticalNavLink
+        :item="{
+        title: 'Login',
+        icon: 'mdi-login',
+        to: '/login',
+        }"
+        />
+
+        <VerticalNavLink
         :item="{
           title: 'Aggregators',
           icon: 'mdi-account-check',
           to: '/aggregators',
         }"
-      />
-      <VerticalNavLink
+        />
+        
+        <VerticalNavLink
+        :item="{
+        title: 'Register',
+        icon: 'mdi-account-plus-outline',
+        to: '/register',
+        }"
+        />
+      
+        <VerticalNavLink
         :item="{
           title: 'Champions',
           icon: 'mdi-account-check-outline',
           to: '/account-settings',
         }"
-      />
-      <VerticalNavLink
+        />
+        
+        <VerticalNavLink
+        :item="{
+          title: 'Champions',
+          icon: 'mdi-account-check-outline',
+          to: '/account-settings',
+        }"
+        />
+        
+        <VerticalNavLink
+        :item="{
+        title: 'Error',
+        icon: 'mdi-information-outline',
+        to: '/no-existence',
+        }"
+        />
+      -->
+      <!--
+        👉 
+        User Interface
+        <VerticalNavSectionTitle
+        :item="{
+        heading: 'User Interface',
+        }"
+        />
+      
+        <VerticalNavLink
         :item="{
           title: 'Collection Reports',
           icon: 'mdi-chart-bar',
           to: '/account-settings',
         }"
-      />
-      <VerticalNavLink
+        />
+        <VerticalNavLink
         :item="{
           title: 'Waste Types',
           icon: 'mdi-trash-can-outline',
           to: '/account-settings',
         }"
-      />
-      <VerticalNavLink
+        />
+        <VerticalNavLink
         :item="{
           title: 'Waste Sales',
           icon: 'mdi-cash',
           to: '/account-settings',
         }"
-      />
-      <VerticalNavLink
+        />
+        
+        <VerticalNavLink
+        :item="{
+        title: 'Cards',
+        icon: 'mdi-credit-card-outline',
+        to: '/cards',
+        }"
+        />
+        
+        <VerticalNavLink
         :item="{
           title: 'Inventory',
           icon: 'mdi-animation-outline',
           to: '/account-settings',
         }"
-      />
+        />
+        
+        <VerticalNavLink
+        :item="{
+        title: 'Tables',
+        icon: 'mdi-table',
+        to: '/tables',
+        }"
+        />
+        
+        <VerticalNavLink
+        :item="{
+        title: 'Form Layouts',
+        icon: 'mdi-form-select',
+        to: '/form-layouts',
+        }"
+        />
+      -->
       <VerticalNavLink
         :item="{
           title: 'System users',
           icon: 'mdi-account-group',
           to: '/account-settings',
+        }"
+      />
+      
+      <VerticalNavLink
+        :item="{
+          title: showTitle ? 'Log-out' : '',
+          icon: 'mdi-logout',
+          to: '/logout',
         }"
       />
     </template>
@@ -153,5 +249,12 @@ const upgradeBanner = computed(() => {
   line-height: 1.3125rem;
   padding-block: 0.125rem;
   padding-inline: 0.25rem;
+}
+
+.menu-bar {
+  display: none;
+  justify-content: flex-end;
+  background: inherit;
+  margin-block-end: 0.5rem;
 }
 </style>
