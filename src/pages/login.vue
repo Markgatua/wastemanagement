@@ -20,6 +20,34 @@ const authThemeMask = computed(() => {
 })
 
 const isPasswordVisible = ref(false)
+const errorMessage = ref('')
+
+const handleLogin = async () => {
+  try {
+    const response = await fetch('http://localhost:8080/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: form.email,
+        password: form.password,
+      }),
+    })
+
+    const data = await response.json()
+
+    if (response.ok) {
+      window.location.href = data.redirect
+    } else {
+      errorMessage.value = data.error
+      console.error(data.error)
+    }
+  } catch (error) {
+    errorMessage.value = error
+    console.error('An error occurred during login:', error)
+  }
+}
 </script>
 
 <template>
@@ -71,6 +99,14 @@ const isPasswordVisible = ref(false)
                 @click:append-inner="isPasswordVisible = !isPasswordVisible"
               />
 
+
+              <div
+                v-if="errorMessage"
+                class="d-flex align-center mt-2"
+              >
+                {{ errorMessage }}
+              </div>
+
               <!-- remember me checkbox -->
               <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
                 <VCheckbox
@@ -89,8 +125,7 @@ const isPasswordVisible = ref(false)
               <!-- login button -->
               <VBtn
                 block
-                type="submit"
-                to="/"
+                @click="handleLogin"
               >
                 Login
               </VBtn>
@@ -121,19 +156,19 @@ const isPasswordVisible = ref(false)
       </VCardText>
     </VCard>
 
-    <VImg
+    <!--
+      <VImg
       class="auth-footer-start-tree d-none d-md-block"
       :src="authV1Tree"
       :width="250"
-    />
+      />
 
-    <VImg
+      <VImg
       :src="authV1Tree2"
       class="auth-footer-end-tree d-none d-md-block"
       :width="350"
-    />
-
-    <!-- bg img -->
+      />
+    -->
     <VImg
       class="auth-footer-mask d-none d-md-block"
       :src="authThemeMask"

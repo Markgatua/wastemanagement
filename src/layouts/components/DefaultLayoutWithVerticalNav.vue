@@ -11,6 +11,12 @@ import Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
 
+const showTitle = ref(true)
+
+const collapseMenuBar = () => {
+  showTitle.value = !showTitle.value
+}
+
 const vuetifyTheme = useTheme()
 
 const upgradeBanner = computed(() => {
@@ -60,16 +66,21 @@ const upgradeBanner = computed(() => {
     </template>
 
     <template #vertical-nav-content>
+      <div class="menu-bar">
+        <IconBtn @click="collapseMenuBar">
+          <VIcon icon="mdi-menu" />
+        </IconBtn>
+      </div>
       <VerticalNavLink
         :item="{
-          title: 'Dashboard',
+          title: showTitle ? 'Dashboard' : '',
           icon: 'mdi-home-outline',
           to: '/dashboard',
         }"
       />
       <VerticalNavLink
         :item="{
-          title: 'Account Settings',
+          title: showTitle ? 'Account Settings' : '',
           icon: 'mdi-account-cog-outline',
           to: '/account-settings',
         }"
@@ -154,7 +165,7 @@ const upgradeBanner = computed(() => {
       -->
       <VerticalNavLink
         :item="{
-          title: 'Log-out',
+          title: showTitle ? 'Log-out' : '',
           icon: 'mdi-logout',
           to: '/logout',
         }"
@@ -181,5 +192,12 @@ const upgradeBanner = computed(() => {
   line-height: 1.3125rem;
   padding-block: 0.125rem;
   padding-inline: 0.25rem;
+}
+
+.menu-bar {
+  display: none;
+  justify-content: flex-end;
+  background: inherit;
+  margin-block-end: 0.5rem;
 }
 </style>

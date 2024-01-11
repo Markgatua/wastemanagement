@@ -1,8 +1,8 @@
 <script setup>
-import logo from '@images/logo.svg?raw'
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 import { useDisplay } from 'vuetify'
 import newLogo from '@images/takalogo.png'
+
 const props = defineProps({
   tag: {
     type: [
@@ -54,20 +54,18 @@ const handleNavScroll = evt => {
     <!-- 👉 Header -->
     <div class="nav-header">
       <slot name="nav-header">
-        <RouterLink
-          to="/"
-          class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
-        >
-        <img
-        :src="newLogo"
-        alt="Logo"
-        class="d-flex"
-      />
-
-          <!-- <h1 class="font-weight-medium leading-normal text-xl text-uppercase">
-            Materio
-          </h1> -->
-        </RouterLink>
+        <div>
+          <RouterLink
+            to="/"
+            class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
+          >
+            <img
+              :src="newLogo"
+              alt="Logo"
+              class="d-flex"
+            >
+          </RouterLink>
+        </div>
       </slot>
     </div>
     <slot name="before-nav-items">
@@ -77,6 +75,19 @@ const handleNavScroll = evt => {
       name="nav-items"
       :update-is-vertical-nav-scrolled="updateIsVerticalNavScrolled"
     >
+      <div class="logo">
+        <RouterLink
+          to="/"
+          class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
+        >
+          <img
+            :src="newLogo"
+            alt="Logo"
+            class="d-flex"
+          >
+        </RouterLink>
+      </div>
+
       <PerfectScrollbar
         tag="ul"
         class="nav-items"
@@ -94,10 +105,14 @@ const handleNavScroll = evt => {
 <style lang="scss">
 @use "@configured-variables" as variables;
 @use "@layouts/styles/mixins";
-img{
-  height: 100px;
-  width: 100%;
+
+img {
+  block-size: 100px;
+  inline-size: 90%;
+  margin-block-end: 0.5rem;
+  margin-block-start: 0.5rem;
 }
+
 // 👉 Vertical Nav
 .layout-vertical-nav {
   position: fixed;
@@ -112,7 +127,7 @@ img{
   will-change: transform, inline-size;
 
   .nav-header {
-    display: flex;
+    display: none;
     align-items: center;
 
     .header-action {
@@ -121,10 +136,12 @@ img{
   }
 
   .app-title-wrapper {
+    background: #fff;
     margin-inline-end: auto;
   }
 
   .nav-items {
+    background: #fff;
     block-size: 100%;
 
     // ℹ️ We no loner needs this overflow styles as perfect scrollbar applies it
