@@ -84,17 +84,17 @@ const upgradeBanner = computed(() => {
           to: '/onboard',
         }"
       />
-      
-      <VerticalNavLink
-        :item="{
-          title: showTitle ? 'Account Settings' : '',
-          icon: 'mdi-account-cog-outline',
-          to: '/account-settings',
-        }"
-      />
 
       <!-- 👉 Pages -->
       <!--
+        <VerticalNavLink
+        :item="{
+        title: showTitle ? 'Account Settings' : '',
+        icon: 'mdi-account-cog-outline',
+        to: '/account-settings',
+        }"
+        />
+      
         <VerticalNavSectionTitle
         :item="{
         heading: 'Pages',
@@ -111,36 +111,12 @@ const upgradeBanner = computed(() => {
 
         <VerticalNavLink
         :item="{
-          title: 'Aggregators',
-          icon: 'mdi-account-check',
-          to: '/aggregators',
-        }"
-        />
-        
-        <VerticalNavLink
-        :item="{
         title: 'Register',
         icon: 'mdi-account-plus-outline',
         to: '/register',
         }"
         />
-      
-        <VerticalNavLink
-        :item="{
-          title: 'Champions',
-          icon: 'mdi-account-check-outline',
-          to: '/account-settings',
-        }"
-        />
-        
-        <VerticalNavLink
-        :item="{
-          title: 'Champions',
-          icon: 'mdi-account-check-outline',
-          to: '/account-settings',
-        }"
-        />
-        
+
         <VerticalNavLink
         :item="{
         title: 'Error',
@@ -149,6 +125,45 @@ const upgradeBanner = computed(() => {
         }"
         />
       -->
+
+      <VerticalNavLink
+        :item="{
+          title: 'Aggregators',
+          icon: 'mdi-account-check',
+          to: '/aggregators',
+        }"
+      />
+      
+      <VerticalNavLink
+        :item="{
+          title: 'Champions',
+          icon: 'mdi-account-check-outline',
+          to: '/champions',
+        }"
+      />
+
+      <VerticalNavLink
+        :item="{
+          title: 'Collection Reports',
+          icon: 'mdi-chart-bar',
+          to: '/account-settings',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Waste Types',
+          icon: 'mdi-trash-can-outline',
+          to: '/account-settings',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Waste Sales',
+          icon: 'mdi-cash',
+          to: '/account-settings',
+        }"
+      />
+
       <!--
         👉 
         User Interface
@@ -157,42 +172,12 @@ const upgradeBanner = computed(() => {
         heading: 'User Interface',
         }"
         />
-      
-        <VerticalNavLink
-        :item="{
-          title: 'Collection Reports',
-          icon: 'mdi-chart-bar',
-          to: '/account-settings',
-        }"
-        />
-        <VerticalNavLink
-        :item="{
-          title: 'Waste Types',
-          icon: 'mdi-trash-can-outline',
-          to: '/account-settings',
-        }"
-        />
-        <VerticalNavLink
-        :item="{
-          title: 'Waste Sales',
-          icon: 'mdi-cash',
-          to: '/account-settings',
-        }"
-        />
         
         <VerticalNavLink
         :item="{
         title: 'Cards',
         icon: 'mdi-credit-card-outline',
         to: '/cards',
-        }"
-        />
-        
-        <VerticalNavLink
-        :item="{
-          title: 'Inventory',
-          icon: 'mdi-animation-outline',
-          to: '/account-settings',
         }"
         />
         
@@ -212,6 +197,15 @@ const upgradeBanner = computed(() => {
         }"
         />
       -->
+
+      <VerticalNavLink
+        :item="{
+          title: 'Inventory',
+          icon: 'mdi-animation-outline',
+          to: '/account-settings',
+        }"
+      />
+
       <VerticalNavLink
         :item="{
           title: 'System users',
