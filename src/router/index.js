@@ -56,6 +56,10 @@ const router = createRouter({
           path: 'aggregators',
           component: () => import('../pages/aggregators.vue'),
         },
+        {
+          path: 'champions',
+          component: () => import('../pages/champions.vue'),
+        },
       ],
     },
     {
