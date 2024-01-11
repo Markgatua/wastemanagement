@@ -54,6 +54,20 @@ const handleNavScroll = evt => {
     <!-- 👉 Header -->
     <div class="nav-header">
       <slot name="nav-header">
+        <RouterLink
+          to="/"
+          class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
+        >
+        <img
+        :src="newLogo"
+        alt="Logo"
+        class="d-flex"
+      />
+
+          <!-- <h1 class="font-weight-medium leading-normal text-xl text-uppercase">
+           Takataka Ni Mali
+          </h1> -->
+        </RouterLink>
         <div>
           <RouterLink
             to="/"

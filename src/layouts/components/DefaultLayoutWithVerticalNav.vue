@@ -1,10 +1,9 @@
 <script setup>
-import { useTheme } from 'vuetify'
 import upgradeBannerDark from '@images/pro/upgrade-banner-dark.png'
 import upgradeBannerLight from '@images/pro/upgrade-banner-light.png'
 import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
+import { useTheme } from 'vuetify'
 
 // Components
 import Footer from '@/layouts/components/Footer.vue'
@@ -73,11 +72,19 @@ const upgradeBanner = computed(() => {
       </div>
       <VerticalNavLink
         :item="{
-          title: showTitle ? 'Dashboard' : '',
+          title: 'Home',
           icon: 'mdi-home-outline',
           to: '/dashboard',
         }"
       />
+      <VerticalNavLink
+        :item="{
+          title: showTitle ? 'Onboarding' : '',
+          icon: 'mdi-plus-box-multiple-outline',
+          to: '/onboard',
+        }"
+      />
+      
       <VerticalNavLink
         :item="{
           title: showTitle ? 'Account Settings' : '',
@@ -104,12 +111,36 @@ const upgradeBanner = computed(() => {
 
         <VerticalNavLink
         :item="{
+          title: 'Aggregators',
+          icon: 'mdi-account-check',
+          to: '/aggregators',
+        }"
+        />
+        
+        <VerticalNavLink
+        :item="{
         title: 'Register',
         icon: 'mdi-account-plus-outline',
         to: '/register',
         }"
         />
       
+        <VerticalNavLink
+        :item="{
+          title: 'Champions',
+          icon: 'mdi-account-check-outline',
+          to: '/account-settings',
+        }"
+        />
+        
+        <VerticalNavLink
+        :item="{
+          title: 'Champions',
+          icon: 'mdi-account-check-outline',
+          to: '/account-settings',
+        }"
+        />
+        
         <VerticalNavLink
         :item="{
         title: 'Error',
@@ -129,18 +160,26 @@ const upgradeBanner = computed(() => {
       
         <VerticalNavLink
         :item="{
-        title: 'Typography',
-        icon: 'mdi-alpha-t-box-outline',
-        to: '/typography',
+          title: 'Collection Reports',
+          icon: 'mdi-chart-bar',
+          to: '/account-settings',
         }"
         />
         <VerticalNavLink
         :item="{
-        title: 'Icons',
-        icon: 'mdi-eye-outline',
-        to: '/icons',
+          title: 'Waste Types',
+          icon: 'mdi-trash-can-outline',
+          to: '/account-settings',
         }"
         />
+        <VerticalNavLink
+        :item="{
+          title: 'Waste Sales',
+          icon: 'mdi-cash',
+          to: '/account-settings',
+        }"
+        />
+        
         <VerticalNavLink
         :item="{
         title: 'Cards',
@@ -148,6 +187,15 @@ const upgradeBanner = computed(() => {
         to: '/cards',
         }"
         />
+        
+        <VerticalNavLink
+        :item="{
+          title: 'Inventory',
+          icon: 'mdi-animation-outline',
+          to: '/account-settings',
+        }"
+        />
+        
         <VerticalNavLink
         :item="{
         title: 'Tables',
@@ -155,6 +203,7 @@ const upgradeBanner = computed(() => {
         to: '/tables',
         }"
         />
+        
         <VerticalNavLink
         :item="{
         title: 'Form Layouts',
@@ -163,6 +212,14 @@ const upgradeBanner = computed(() => {
         }"
         />
       -->
+      <VerticalNavLink
+        :item="{
+          title: 'System users',
+          icon: 'mdi-account-group',
+          to: '/account-settings',
+        }"
+      />
+      
       <VerticalNavLink
         :item="{
           title: showTitle ? 'Log-out' : '',

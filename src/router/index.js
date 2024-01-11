@@ -36,6 +36,26 @@ const router = createRouter({
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
         },
+        {
+          path: 'onboard',
+          component: () => import('../pages/onboard.vue'),
+        },
+        {
+          path: 'onboard-aggregators',
+          component: () => import('../pages/onboard-aggregators.vue'),
+        },
+        {
+          path: 'onboard-aggregators-single',
+          component: () => import('../pages/onboard-aggregators-single.vue'),
+        },
+        {
+          path: 'onboard-aggregators-multiple',
+          component: () => import('../pages/onboard-aggregators-multiple.vue'),
+        },
+        {
+          path: 'aggregators',
+          component: () => import('../pages/aggregators.vue'),
+        },
       ],
     },
     {
