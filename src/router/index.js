@@ -14,7 +14,11 @@ const router = createRouter({
         },
         {
           path: 'account-settings',
-          component: () => import('../pages/account-settings.vue'),
+          component: () => import('../pages/settings.vue'),
+        },
+        {
+          path: 'settings',
+          component: () => import('../pages/settings.vue'),
         },
         {
           path: 'typography',
@@ -60,6 +64,10 @@ const router = createRouter({
           path: 'champions',
           component: () => import('../pages/champions.vue'),
         },
+        {
+          path: 'collection-reports',
+          component: () => import('../pages/collection-reports.vue'),
+        },
       ],
     },
     {
@@ -80,7 +88,7 @@ const router = createRouter({
         },
         {
           path: 'logout',
-          component: () => import('../pages/login.vue'),
+          component: () => import('../pages/sign-out.vue'),
         },
       ],
     },

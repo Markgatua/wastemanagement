@@ -85,27 +85,19 @@ const upgradeBanner = computed(() => {
         }"
       />
 
+      <VerticalNavLink
+        :item="{
+          title: 'Login',
+          icon: 'mdi-login',
+          to: '/login',
+        }"
+      />
+
       <!-- 👉 Pages -->
       <!--
-        <VerticalNavLink
-        :item="{
-        title: showTitle ? 'Account Settings' : '',
-        icon: 'mdi-account-cog-outline',
-        to: '/account-settings',
-        }"
-        />
-      
         <VerticalNavSectionTitle
         :item="{
         heading: 'Pages',
-        }"
-        />
-      
-        <VerticalNavLink
-        :item="{
-        title: 'Login',
-        icon: 'mdi-login',
-        to: '/login',
         }"
         />
 
@@ -146,7 +138,7 @@ const upgradeBanner = computed(() => {
         :item="{
           title: 'Collection Reports',
           icon: 'mdi-chart-bar',
-          to: '/account-settings',
+          to: '/collection-reports',
         }"
       />
       <VerticalNavLink
@@ -210,15 +202,23 @@ const upgradeBanner = computed(() => {
         :item="{
           title: 'System users',
           icon: 'mdi-account-group',
-          to: '/account-settings',
+          to: '/system-users',
         }"
       />
-      
+
       <VerticalNavLink
         :item="{
-          title: showTitle ? 'Log-out' : '',
+          title: showTitle ? 'Settings' : '',
+          icon: 'mdi-account-cog-outline',
+          to: '/settings',
+        }"
+      />
+
+      <VerticalNavLink
+        :item="{
+          title: showTitle ? 'Sign Out' : '',
           icon: 'mdi-logout',
-          to: '/logout',
+          to: '/login',
         }"
       />
     </template>

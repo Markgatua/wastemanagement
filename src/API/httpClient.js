@@ -1,5 +1,15 @@
-import axios from '@axios'
+import axios from "axios"
+import { cacheAdapterEnhancer } from "axios-extensions"
 import { BASE_URL } from "./urls"
+
+// Uncomment the next two lines if using XHR adapter
+// import xhrAdapter from "axios/lib/adapters/xhr";
+// axios.defaults.adapter = xhrAdapter;
+
+const cacheConfig = {
+  enabledByDefault: false,
+  cacheFlag: "useCache",
+}
 
 const httpClient = axios.create({
   baseURL: BASE_URL,
@@ -7,43 +17,24 @@ const httpClient = axios.create({
   headers: {
     "Cache-Control": "no-cache",
     "Content-Type": "application/json",
-    Accept: "application/json",
+    "Accept": "application/json",
   },
   adapter: cacheAdapterEnhancer(axios.defaults.adapter, cacheConfig),
 })
-  
-// This interceptor sets the auth token automatically if it exists in the store
+
 const authInterceptor = config => {
-  const token = this.$store.state.auth.token
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  
   return config
 }
-  
-httpClient.interceptors.request.use(authInterceptor)
 
-// httpClient.interceptors.request.use(
-//   config => {
-//     return config
-//   },
-//   error => {
-//     return Promise.reject(error)
-//   },
-// )
+httpClient.interceptors.request.use(authInterceptor)
 
 httpClient.interceptors.response.use(
   response => {
     return response.data
   },
   error => {
-    if (error.response.status === 401) {
-      this.$store.commit("auth/setToken", null)
-    }
-    
     return Promise.reject(error)
   },
 )
-  
+
 export default httpClient

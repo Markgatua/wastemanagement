@@ -1,16 +1,30 @@
 <script setup>
-import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
 import { useTheme } from 'vuetify'
 import logo from '@images/takalogo.png'
 import authV1MaskDark from '@images/pages/auth-v1-mask-dark.png'
 import authV1MaskLight from '@images/pages/auth-v1-mask-light.png'
-import authV1Tree2 from '@images/pages/auth-v1-tree-2.png'
-import authV1Tree from '@images/pages/auth-v1-tree.png'
+
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+// const { email, password, remember, isPasswordVisible, errorMessage } = mapState('auth', [
+//   'form.email',
+//   'form.password',
+//   'form.remember',
+//   'isPasswordVisible',
+//   'errorMessage',
+// ])
 
 const form = ref({
   email: '',
   password: '',
   remember: false,
+})
+
+const login_data = ref({
+  email: "davidgakobo24@gmail.com",
+  password: "87654321",
 })
 
 const vuetifyTheme = useTheme()
@@ -24,25 +38,7 @@ const errorMessage = ref('')
 
 const handleLogin = async () => {
   try {
-    const response = await fetch('http://localhost:8080/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: form.email,
-        password: form.password,
-      }),
-    })
-
-    const data = await response.json()
-
-    if (response.ok) {
-      window.location.href = data.redirect
-    } else {
-      errorMessage.value = data.error
-      console.error(data.error)
-    }
+    await store.dispatch('auth/loginUser', login_data)
   } catch (error) {
     errorMessage.value = error
     console.error('An error occurred during login:', error)
